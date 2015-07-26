@@ -1,0 +1,53 @@
+{{!< default}}
+<main class="main_versatile" role="main">
+{{#post}}
+<article class="article_versatile articlePosts" role="article" itemscope itemtype="http://schema.org/Article">
+<time class="date_versatile" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">{{date format='dddd DD MMM YYYY'}}</time>
+<h1 class="posttitle_versatile" itemprop="headline"><a href="{{{url}}}" rel="bookmark">{{title}}</a></h1>
+</header>
+<div class="postcontent_versatile" itemprop="articleBody">
+{{content}}
+</div>
+{{#if tags}}
+<div class="posttags_versatile">
+Tags: {{tags separator=" | "}}
+</div>
+{{/if}}
+    <div class="sharepost_versatile">
+    <h4 class="share_versatile">Share this post: &nbsp;</h4>
+   <a class="share_versatile spacing" target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"> <i class="fa fa-twitter fa-2x"></i>
+    <a class="share_versatile icon-facebook spacing" target="_blank" href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}"><i class="fa fa-facebook fa-2x"></i>
+    <a class="share_versatile icon-gplus spacing" target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}"><i class="fa fa-google-plus fa-2x"></i></a>
+    </div>
+<div id="postComments">
+<section class="comment">
+    <div class="g-comments" data-href="{{@blog.url}}{{url}}" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>
+    <script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+    <noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+</section>
+</div>
+        {{#if author}}
+        <footer class="postfooter_versatile">
+        <address itemscope itemtype="http://schema.org/Person">
+        {{#if author.image}}
+        <div class="authorimage_versatile"><img src="{{author.image}}" itemprop="image" /></div>
+        {{/if}}
+        <h4 class="authorname_versatile"><span itemprop="author">{{author.name}}</span></h4>
+        {{#if author.website}}
+        <div class="authorwebsite_versatile"><a href="{{author.website}}" itemprop="url">{{author.website}}</a></div>
+        {{/if}}
+        </address>
+        <div class="authorbio_versatile">
+        <p>{{author.bio}}</p>
+        </div>
+        </footer>
+        {{/if}}
+</article>
+{{/post}}
+{{#if pagination}}
+<div class="pagination_uber">
+{{{pagination}}}
+</div>
+{{/if}}
+</main>
+{{> footer}}

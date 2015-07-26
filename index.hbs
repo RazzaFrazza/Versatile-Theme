@@ -1,0 +1,20 @@
+{{!< default}}
+<main class="main_versatile" role="main">
+{{#foreach posts}}
+<article class="article_versatile index" role="article" itemscope itemtype="http://schema.org/Article">
+<header class="postheader_versatile">
+<time class="date_uber" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">
+<h1 class="posttitle_versatile" itemprop="headline"><a href="{{{url}}}" rel="bookmark">{{title}}</a></h1>
+</header>
+<div class="postcontent_versatile" itemprop="articleBody">
+{{content words="10"}}
+</div> 
+</article>
+{{/foreach}}
+{{#if pagination}}
+<div class="pagination_versatile">
+{{{pagination}}}
+</div>
+{{/if}}
+</main>
+{{> footer}}
